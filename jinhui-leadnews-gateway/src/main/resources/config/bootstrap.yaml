@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: leadnews-app-gateway
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      server-addr: 192.168.43.33:8888
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+        username: ${spring.cloud.nacos.password}
+        password: ${spring.cloud.nacos.password}
+        namespace: 554b6094-d44e-480a-8935-34f128381c6c
+        cluster-name: YBU
+        enabled: true
+      config:
+        server-addr: ${spring.cloud.nacos.server-addr}
+        username: ${spring.cloud.nacos.password}
+        password: ${spring.cloud.nacos.password}
+        file-extension: yaml
+        namespace: 554b6094-d44e-480a-8935-34f128381c6c
+        cluster-name: YBU
+        enabled: true
+        group: DEFAULT_GROUP
