@@ -1,0 +1,5 @@
+mybatis-plus:
+  type-aliases-package: com.myhd.jinhuileadnewsmodel.common.user.pojos
+  configuration:
+    map-underscore-to-camel-case: true
+    # cache-enabled: true # 二级缓存
