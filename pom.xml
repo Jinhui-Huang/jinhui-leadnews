@@ -383,21 +383,6 @@
                 </executions>
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>src.bak/main/resources</directory>
-                <includes>
-                    <include>**/*.*</include>
-                </includes>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-        <testResources>
-            <testResource>
-                <directory>src.bak/test/resources</directory>
-                <filtering>true</filtering>
-            </testResource>
-        </testResources>
     </build>
 
 </project>
