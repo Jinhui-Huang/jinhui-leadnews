@@ -13,4 +13,5 @@ public class JinhuiLeadnewsUserApplication {
     public static void main(String[] args) {
         SpringApplication.run(JinhuiLeadnewsUserApplication.class, args);
     }
+
 }

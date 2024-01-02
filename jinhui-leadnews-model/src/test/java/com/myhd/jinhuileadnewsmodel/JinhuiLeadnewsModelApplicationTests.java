@@ -8,6 +8,7 @@ class JinhuiLeadnewsModelApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }
