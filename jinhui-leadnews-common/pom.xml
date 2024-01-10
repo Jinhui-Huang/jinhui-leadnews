@@ -25,6 +25,10 @@
             <artifactId>jinhui-leadnews-utils</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.myhd</groupId>
+            <artifactId>jinhui-leadnews-model</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
         </dependency>

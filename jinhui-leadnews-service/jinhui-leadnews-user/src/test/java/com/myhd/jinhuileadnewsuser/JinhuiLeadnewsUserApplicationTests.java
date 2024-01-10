@@ -12,5 +12,4 @@ class JinhuiLeadnewsUserApplicationTests {
         String pwd = DigestUtils.md5DigestAsHex(("12345678jntm" + "abc").getBytes());
         System.out.println(pwd);
     }
-
 }
