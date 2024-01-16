@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.myhd.jinhuileadnewscommon.swagger.SwaggerConfiguration, \
+    com.myhd.jinhuileadnewscommon.swagger.Swagger2Configuration

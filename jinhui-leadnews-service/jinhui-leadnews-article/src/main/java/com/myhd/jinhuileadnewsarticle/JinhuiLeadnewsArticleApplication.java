@@ -19,6 +19,12 @@ public class JinhuiLeadnewsArticleApplication {
         SpringApplication.run(JinhuiLeadnewsArticleApplication.class,args);
     }
 
+    /**
+     * Description: mybatisPlusInterceptor mybatis plus 分页插件
+     * @return com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor
+     * @author jinhui-huang
+     * @Date 2024/1/16
+     * */
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
