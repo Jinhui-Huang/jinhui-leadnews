@@ -8,6 +8,7 @@
     </parent>
     <modules>
         <module>jinhui-leadnews-user</module>
+        <module>jinhui-leadnews-article</module>
     </modules>
     <packaging>pom</packaging>
     <modelVersion>4.0.0</modelVersion>
