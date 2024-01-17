@@ -22,6 +22,7 @@
         <module>jinhui-leadnews-service</module>
         <module>jinhui-leadnews-gateway</module>
         <module>jinhui-leadnews-test</module>
+        <module>jinhui-leadnews-basic</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
