@@ -1,7 +1,13 @@
+import com.myhd.file.service.FileStorageService;
+import com.myhd.minio.MinIOApplication;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 /**
  * Description: MinIOTest
@@ -15,7 +21,11 @@ import java.io.FileInputStream;
  * @email 2634692718@qq.com
  * @Date: 2024/1/17 16:38
  */
+@SpringBootTest(classes = MinIOApplication.class)
 public class MinIOTest {
+
+    @Autowired
+    private FileStorageService fileStorageService;
 
     public static void main(String[] args) {
         try {
@@ -35,6 +45,17 @@ public class MinIOTest {
             minioClient.putObject(putObjectArgs);
             System.out.println("上传成功");
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void testUpdateImgFile() {
+        try {
+            FileInputStream fis = new FileInputStream("src/main/resources/static/img/test.jpg");
+            String filePath = fileStorageService.uploadImgFile("", "test.jpg", fis);
+            System.out.println(filePath);
         } catch (Exception e) {
             e.printStackTrace();
         }
