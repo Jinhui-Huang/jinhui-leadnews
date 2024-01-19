@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -58,6 +59,42 @@ public class MinIOTest {
             System.out.println(filePath);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    void uploadFile() {
+        String filePath = "src/main/resources/plugins";
+        upFile(filePath, "");
+    }
+
+    private void upFile(String filePath, String nextFile) {
+
+        try {
+            File file = new File(filePath, nextFile);
+            File[] files = file.listFiles();
+            if (files == null) {
+                System.out.println("文件路径不存在");
+                return;
+            }
+            for (File file1 : files) {
+                if (file1.isFile()) {
+                    String fileName = file1.getName();
+                    String[] types = fileName.split("\\.");
+                    String fileType = "other";
+                    if (types.length > 0) {
+                        fileType = types[types.length - 1];
+                    }
+                    FileInputStream fis = new FileInputStream(file1);
+                    String contentType = "text/" + fileType;
+                    String fileUrl = fileStorageService.uploadFile("plugins/" + fileType, fileName, fis, contentType);
+                    System.out.println(fileUrl);
+                } else {
+                    upFile(file.getPath() ,file1.getName());
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }

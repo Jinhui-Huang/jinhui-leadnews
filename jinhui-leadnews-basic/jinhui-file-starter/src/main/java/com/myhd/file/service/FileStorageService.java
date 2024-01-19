@@ -29,6 +29,16 @@ public interface FileStorageService {
     public String uploadHtmlFile(String prefix, String filename,InputStream inputStream);
 
     /**
+     *  上传文件
+     * @param prefix  文件前缀
+     * @param filename   文件名
+     * @param inputStream  文件流
+     * @param contentType 文件类型
+     * @return  文件全路径
+     */
+    public String uploadFile(String prefix, String filename,InputStream inputStream, String contentType);
+
+    /**
      * 删除文件
      * @param pathUrl  文件全路径
      */

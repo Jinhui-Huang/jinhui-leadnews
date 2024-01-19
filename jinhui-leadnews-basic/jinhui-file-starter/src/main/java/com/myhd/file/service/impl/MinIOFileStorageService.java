@@ -108,6 +108,42 @@ public class MinIOFileStorageService implements FileStorageService {
     }
 
     /**
+     * 上传文件
+     *
+     * @param prefix      文件前缀
+     * @param filename    文件名
+     * @param inputStream 文件流
+     * @param contentType 文件类型
+     * @return 文件全路径
+     */
+    @Override
+    public String uploadFile(String prefix, String filename, InputStream inputStream, String contentType) {
+        StringBuilder stringBuilder = new StringBuilder(50);
+        if(!StringUtils.isEmpty(prefix)){
+            stringBuilder.append(prefix).append(separator);
+        }
+        stringBuilder.append(filename);
+        String filePath = stringBuilder.toString();
+        try {
+            PutObjectArgs putObjectArgs = PutObjectArgs.builder()
+                    .object(filePath)
+                    .contentType(contentType)
+                    .bucket(minIOConfigProperties.getBucket()).stream(inputStream,inputStream.available(),-1)
+                    .build();
+            minioClient.putObject(putObjectArgs);
+            StringBuilder urlPath = new StringBuilder(minIOConfigProperties.getReadPath());
+            urlPath.append(separator+minIOConfigProperties.getBucket());
+            urlPath.append(separator);
+            urlPath.append(filePath);
+            return urlPath.toString();
+        }catch (Exception ex){
+            log.error("minio put file error.",ex);
+            ex.printStackTrace();
+            throw new RuntimeException("上传文件失败");
+        }
+    }
+
+    /**
      * 删除文件
      * @param pathUrl  文件全路径
      */

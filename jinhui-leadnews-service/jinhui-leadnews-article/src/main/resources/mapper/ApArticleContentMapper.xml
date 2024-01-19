@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myhd.jinhuileadnewsarticle.mapper.ApArticleContentMapper">
+
+    <resultMap id="resultMap" type="com.myhd.jinhuileadnewsmodel.article.pojos.ApArticleContent">
+        <id column="id" property="id"/>
+        <result column="article_id" property="articleId"/>
+        <result column="content" property="content"/>
+    </resultMap>
+
+
+</mapper>
