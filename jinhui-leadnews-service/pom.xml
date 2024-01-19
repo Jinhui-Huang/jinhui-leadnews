@@ -9,6 +9,7 @@
     <modules>
         <module>jinhui-leadnews-user</module>
         <module>jinhui-leadnews-article</module>
+        <module>jinhui-leadnews-wemedia</module>
     </modules>
     <packaging>pom</packaging>
     <modelVersion>4.0.0</modelVersion>
