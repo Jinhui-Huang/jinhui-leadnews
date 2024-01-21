@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/login")
 @Api(value = "app端用户登录", tags = "app端用户登录")
 public class ApUserController {
+
     @Autowired
     private IApUserService apUserService;
 

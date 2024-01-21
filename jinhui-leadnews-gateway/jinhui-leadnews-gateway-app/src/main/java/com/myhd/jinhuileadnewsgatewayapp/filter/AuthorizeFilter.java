@@ -1,4 +1,4 @@
-package com.myhd.jinhuileadnewsgateway.filter;
+package com.myhd.jinhuileadnewsgatewayapp.filter;
 
 import com.myhd.jinhuileadnewsutils.utils.common.AppJwtUtil;
 import io.jsonwebtoken.Claims;

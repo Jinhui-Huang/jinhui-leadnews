@@ -9,9 +9,13 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>jinhui-leadnews-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <name>jinhui-leadnews-gateway</name>
     <description>jinhui-leadnews-gateway</description>
+    <modules>
+        <module>jinhui-leadnews-gateway-app</module>
+        <module>jinhui-leadnews-gateway-wemdeia</module>
+    </modules>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -35,6 +39,11 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--客户端负载均衡loadbalancer-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
     </dependencies>
 
