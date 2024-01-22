@@ -17,10 +17,10 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <dependencies>
-<!--        <dependency>
+        <dependency>
             <groupId>com.myhd</groupId>
             <artifactId>jinhui-leadnews-model</artifactId>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>

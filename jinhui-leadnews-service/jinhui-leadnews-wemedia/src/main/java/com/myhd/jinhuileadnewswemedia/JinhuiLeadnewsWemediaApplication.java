@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("com.heima.wemedia.mapper")
+@MapperScan("com.myhd.jinhuileadnewswemedia.mapper")
 public class JinhuiLeadnewsWemediaApplication {
 
     public static void main(String[] args) {

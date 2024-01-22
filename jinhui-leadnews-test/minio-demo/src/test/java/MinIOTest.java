@@ -87,6 +87,7 @@ public class MinIOTest {
                     }
                     FileInputStream fis = new FileInputStream(file1);
                     String contentType = "text/" + fileType;
+                    if (fileType.equals("js")) contentType = "text/javascript";
                     String fileUrl = fileStorageService.uploadFile("plugins/" + fileType, fileName, fis, contentType);
                     System.out.println(fileUrl);
                 } else {

@@ -119,26 +119,26 @@ public class MinIOUploadTest {
     public void createStaticUrlTest() throws Exception {
         /*已知文章id*/
         /*1. 获取文章内容*/
-        ApArticleContent apArticleContent = apArticleContentMapper.selectOne(Wrappers.<ApArticleContent>lambdaQuery().eq(ApArticleContent::getArticleId, articleId));
-        if (apArticleContent != null && StringUtils.isNotBlank(apArticleContent.getContent())) {
-            /*2. 文章内容通过freemarker生成html文件*/
-            Template template = configuration.getTemplate("article.ftl");
-            /*数据模型*/
-            Map<String, Object> dataModel = new HashMap<>();
-            dataModel.put("content", JSONArray.parseArray(apArticleContent.getContent()));
-            StringWriter out = new StringWriter();
-            /*合成*/
-            template.process(dataModel, out);
+        List<ApArticle> apArticles = apArticleMapper.selectList(Wrappers.<ApArticle>lambdaQuery().select(ApArticle::getId));
+        for (ApArticle apArticle : apArticles) {
+            ApArticleContent apArticleContent = apArticleContentMapper.selectOne(Wrappers.<ApArticleContent>lambdaQuery().eq(ApArticleContent::getArticleId, apArticle.getId()));
+            if (apArticleContent != null && StringUtils.isNotBlank(apArticleContent.getContent())) {
+                /*2. 文章内容通过freemarker生成html文件*/
+                Template template = configuration.getTemplate("article.ftl");
+                /*数据模型*/
+                Map<String, Object> dataModel = new HashMap<>();
+                dataModel.put("content", JSONArray.parseArray(apArticleContent.getContent()));
+                StringWriter out = new StringWriter();
+                /*合成*/
+                template.process(dataModel, out);
 
-            /*3. 把html文件上传到minio中*/
-            InputStream inputStream = new ByteArrayInputStream(out.toString().getBytes());
-            String htmlUrl = fileStorageService.uploadHtmlFile("", apArticleContent.getArticleId() + ".html", inputStream);
+                /*3. 把html文件上传到minio中*/
+                InputStream inputStream = new ByteArrayInputStream(out.toString().getBytes());
+                String htmlUrl = fileStorageService.uploadHtmlFile("", apArticleContent.getArticleId() + ".html", inputStream);
 
-            /*4. 修改ap_article表, 保存static_url字段*/
-            apArticleService.update(Wrappers.<ApArticle>lambdaUpdate().eq(ApArticle::getId, apArticleContent.getArticleId()).set(ApArticle::getStaticUrl, htmlUrl));
-
+                /*4. 修改ap_article表, 保存static_url字段*/
+                apArticleService.update(Wrappers.<ApArticle>lambdaUpdate().eq(ApArticle::getId, apArticleContent.getArticleId()).set(ApArticle::getStaticUrl, htmlUrl));
+            }
         }
-
-
     }
 }
