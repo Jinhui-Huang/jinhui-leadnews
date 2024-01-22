@@ -2,6 +2,7 @@ package com.myhd.jinhuileadnewsmodel.wemedia.dtos;
 
 import com.myhd.jinhuileadnewsmodel.common.dtos.PageRequestDto;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * Description: WmMaterialDto 查询自媒体素材列表分页参数
@@ -15,6 +16,7 @@ import lombok.Data;
  * @email 2634692718@qq.com
  * @Date: 2024/1/22 14:35
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class WmMaterialDto extends PageRequestDto {
     /**1 收藏 0 未收藏*/
