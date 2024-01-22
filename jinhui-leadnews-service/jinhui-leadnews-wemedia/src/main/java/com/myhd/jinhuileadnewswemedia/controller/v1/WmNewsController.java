@@ -1,6 +1,7 @@
 package com.myhd.jinhuileadnewswemedia.controller.v1;
 
 import com.myhd.jinhuileadnewsmodel.common.dtos.ResponseResult;
+import com.myhd.jinhuileadnewsmodel.wemedia.dtos.WmNewsDto;
 import com.myhd.jinhuileadnewsmodel.wemedia.dtos.WmNewsPageReqDto;
 import com.myhd.jinhuileadnewswemedia.service.WmNewsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,10 @@ public class WmNewsController {
     @PostMapping("/list")
     public ResponseResult findAll(@RequestBody WmNewsPageReqDto wmNewsPageReqDto) {
         return wmNewsService.findAll(wmNewsPageReqDto);
+    }
+
+    @PostMapping("/submit")
+    public ResponseResult submitNews(@RequestBody WmNewsDto wmNewsDto){
+        return wmNewsService.submitNews(wmNewsDto);
     }
 }
